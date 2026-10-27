@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+	<record id="view_muk_ai_provider_form" model="ir.ui.view">
+		<field name="name">muk_ai.provider.form.sync</field>
+		<field name="model">muk_ai.provider</field>
+		<field name="inherit_id" ref="muk_ai.view_muk_ai_provider_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//header/button[@name='action_test_connection']" position="after">
+				<field name="can_sync_models" invisible="1"/>
+				<button
+                    name="action_sync_models"
+                    type="object"
+                    string="Sync Models"
+                    invisible="not can_sync_models or not id"
+                />
+			</xpath>
+		</field>
+	</record>
+
+</odoo>
